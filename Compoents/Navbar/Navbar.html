@@ -10,6 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <nav class="navbar">
@@ -24,26 +31,38 @@
           <ul class="nav-links">
             <li class="nav-item">
               <a href="#" class="nav-link"
-                >Product <span class="arrow">v</span></a
-              >
+                >Product <i class="fas fa-chevron-down arrow-icon"></i
+              ></a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">Pricing</a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link"
-                >Resources <span class="arrow">v</span></a
-              >
+                >Resources <i class="fas fa-chevron-down arrow-icon"></i
+              ></a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link"
-                >Company <span class="arrow">v</span></a
-              >
+                >Company <i class="fas fa-chevron-down arrow-icon"></i
+              ></a>
             </li>
           </ul>
         </div>
 
         <div class="navbar-right">
+          <button
+            id="theme-toggle"
+            style="
+              background: none;
+              border: none;
+              cursor: pointer;
+              font-size: 1.2rem;
+              margin-right: 1rem;
+            "
+          >
+            🌙
+          </button>
           <button class="btn btn-primary">Get Your Free Account</button>
           <button class="btn btn-outline">
             <span class="login-icon">&rarr;</span> Login
@@ -51,5 +70,24 @@
         </div>
       </div>
     </nav>
+    <script src="../../theme.js"></script>
+    <script>
+      const toggleBtn = document.getElementById("theme-toggle");
+      let currentTheme = "light";
+
+      toggleBtn.addEventListener("click", () => {
+        currentTheme = currentTheme === "light" ? "dark" : "light";
+        toggleBtn.textContent = currentTheme === "light" ? "🌙" : "☀️";
+
+        // Apply locally
+        applyTheme(currentTheme);
+
+        // Tell parent to broadcast
+        window.parent.postMessage(
+          { type: "toggle-theme", theme: currentTheme },
+          "*"
+        );
+      });
+    </script>
   </body>
 </html>

@@ -1,54 +1,71 @@
-
+/* Google Font: Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* Navbar Container */
 .navbar {
   width: 100%;
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0.75rem 0;
+  border-bottom: 1px solid #f3f4f6; /* Very subtle border */
+  padding: 1rem 0; /* More breathing room */
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .navbar-container {
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Space out Logo - Links - Buttons */
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 /* Logo */
 .navbar-logo img {
-  height: 40px; /* Adjust based on actual SVG size */
+  height: 40px; /* Matched to typical SaaS logo size */
   display: block;
 }
 
 /* Nav Links */
-.navbar-center .nav-links {
+.navbar-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Center links in the available space */
+  padding-left: 2rem; /* Offset for balance */
+}
+
+.nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 2.5rem; /* Wider gap like the image */
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #374151; /* Dark grey */
+  color: #1f2937; /* Dark gray text */
   font-weight: 600;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.4rem;
   transition: color 0.2s;
 }
 
 .nav-link:hover {
-  color: #111827; /* Black */
+  color: #2b95bd; /* Brand blue on hover */
 }
 
-.arrow {
-  font-size: 0.7rem;
-  transform: scaleX(1.2); /* Make the 'v' a bit wider to look like a chevron */
+.arrow-icon {
+  font-size: 0.75rem;
+  color: #4b5563; /* Lighter gray for icon */
+  transition: transform 0.2s;
+}
+
+.nav-link:hover .arrow-icon {
+  color: #2b95bd;
+  transform: rotate(180deg);
 }
 
 /* Buttons */
@@ -59,47 +76,97 @@
 }
 
 .btn {
-  padding: 0.6rem 1.25rem;
+  padding: 0.65rem 1.4rem; /* Match chunky look */
   border-radius: 6px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
+  transition: all 0.2s ease;
+  font-family: "Inter", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px; /* Fixed height for consistency */
 }
 
+/* Primary Button (Get Your Free Account) */
 .btn-primary {
-  background-color: #2b95bd; /* Blue from image */
+  background-color: #3b9abf; /* Matching the image blue */
   color: white;
   border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .btn-primary:hover {
-  background-color: #207a9b;
+  background-color: #3182a3;
+  transform: translateY(-1px);
 }
 
+/* Outline Button (Login) */
 .btn-outline {
-  background-color: white;
-  color: #2b95bd;
-  border: 1px solid #e5e7eb; /* Light grey border */
-  display: flex;
-  align-items: center;
+  background-color: transparent;
+  color: #3b9abf;
+  border: 1px solid #d1d5db; /* Light gray border */
   gap: 0.5rem;
 }
 
 .btn-outline:hover {
-  border-color: #2b95bd;
-  background-color: #f9fafb;
+  border-color: #3b9abf;
+  background-color: #f0f9ff; /* Very light blue tint */
 }
 
 .login-icon {
+  font-weight: bold;
   font-size: 1.1rem;
-  line-height: 0;
 }
 
-/* Responsive Helper (Simple) */
+/* Theme Toggle */
+#theme-toggle {
+  color: #6b7280;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+#theme-toggle:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
   .navbar-center {
-    display: none; /* Hide links on small screens for now as per simple requirement */
+    display: none;
   }
+}
+
+/* Dark Mode Overrides (injected by theme.js but helpful to have specificity here if needed) */
+body.dark-mode .navbar {
+  background-color: #111827;
+  border-bottom-color: #374151;
+}
+
+body.dark-mode .nav-link {
+  color: #e5e7eb;
+}
+
+body.dark-mode .arrow-icon {
+  color: #9ca3af;
+}
+
+body.dark-mode .btn-outline {
+  border-color: #4b5563;
+  color: #38bdf8; /* Lighter blue for dark mode */
+}
+
+body.dark-mode .btn-outline:hover {
+  background-color: rgba(56, 189, 248, 0.1);
+}
+
+body.dark-mode #theme-toggle {
+  color: #e5e7eb;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background-color: #374151;
 }
