@@ -9,6 +9,41 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #ffffff;
   color: #111827;
+  /* Grid Pattern Background - Subtle Blue Lines */
+  background-image: linear-gradient(#e0f2fe 1px, transparent 1px),
+    linear-gradient(90deg, #e0f2fe 1px, transparent 1px);
+  background-size: 150px 300px; /* Standardize grid size */
+  background-position: center top;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Add subtle blue background blocks to mimic the image */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 12px;
+  opacity: 0.4;
+}
+
+body::before {
+  width: 150px;
+  height: 150px;
+  background: #e0f2fe;
+  top: 100px;
+  left: 5%;
+  transform: rotate(-10deg);
+}
+
+body::after {
+  width: 200px;
+  height: 200px;
+  background: #f0f9ff;
+  top: 200px;
+  right: 5%;
+  transform: rotate(15deg);
 }
 
 .hero {
@@ -16,9 +51,10 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 5rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 /* Badge */
@@ -42,148 +78,187 @@ body {
 
 /* Title */
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
   line-height: 1.1;
   font-weight: 700;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  color: #111827;
 }
 
 .highlight {
-  color: #2b95bd; /* Fallback color */
-  background: linear-gradient(90deg, #2b95bd, #2d8aa7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #2b95bd;
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
 
 .highlight::after {
   content: "";
   position: absolute;
-  bottom: 5px;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background-color: #fde047; /* Yellow underline */
-  opacity: 0.4;
+  bottom: -10px;
+  left: -5px; /* Extend slightly left */
+  width: 105%; /* Extend slightly right */
+  height: 16px;
+  background-color: #fde047; /* Yellow */
+  opacity: 0.8;
   z-index: -1;
-  transform: skewX(-10deg);
+  /* Create the tapered wedge shape */
+  clip-path: polygon(0 10%, 100% 50%, 100% 90%, 0% 100%);
+  transform: rotate(-1deg);
 }
 
 /* Subtitle */
 .hero-subtitle {
   font-size: 1.125rem;
   color: #4b5563;
-  max-width: 800px;
+  max-width: 750px;
   line-height: 1.6;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 /* Works With Card */
 .works-with-card {
-  background: linear-gradient(90deg, #8cbaf0 0%, #a291f0 50%, #e685f0 100%);
-  padding: 0.75rem 2rem;
-  border-radius: 12px;
+  background: linear-gradient(90deg, #7dd3fc 0%, #a78bfa 50%, #f472b6 100%);
+  padding: 1rem 3rem;
+  border-radius: 16px;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2.5rem;
   color: #1f2937;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .works-text {
   font-weight: 600;
-  font-size: 1.1rem;
-  color: #1f2937; /* Dark text on the gradient */
+  font-size: 1.2rem;
+  color: #1f2937;
   opacity: 0.9;
 }
 
 .logos {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .logos img {
-  height: 32px;
-  width: auto;
-  display: block;
-  filter: brightness(0) invert(1); /* Make logos white if they aren't already */
-}
-/* Revert filter if the svgs are already colored. The image shows colored-ish logos inside white circles? 
-   Actually the image shows the logos inside white circles. Let's adjust CSS assuming raw SVGs need circles if they don't have them. 
-   But SVGs usually contain the icon. Let's wrap them in white circles. */
-
-.logos img {
-  filter: none; /* Reset filter */
   background: white;
   border-radius: 50%;
-  padding: 6px;
-  height: 40px;
-  width: 40px;
+  padding: 8px;
+  height: 48px;
+  width: 48px;
+  display: block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Reviews */
 .reviews-container {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: 3rem; /* Wider gap between separate reviews */
+  margin-bottom: 3rem;
 }
 
-.review-item img {
-  height: 24px;
-  display: block;
+.review-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8); /* Slight backdrop */
+  padding: 0.5rem;
+  border-radius: 8px;
 }
 
-.review-divider {
-  width: 1px;
+/* Fixed the 150px issue */
+.review-icon {
   height: 24px;
-  background-color: #d1d5db;
+  width: auto;
+}
+
+.stars {
+  color: #d97706;
+  display: flex;
+  gap: 2px;
+  font-size: 0.9rem;
+}
+
+.rating-text {
+  color: #111827;
+  font-weight: 700;
 }
 
 /* CTA Buttons */
 .cta-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .app-store-btn {
   border: none;
-  background: #333; /* Dark background for store button */
-  padding: 0;
+  background: #1f2937;
+  padding: 0.5rem 1.25rem;
   border-radius: 8px;
   cursor: pointer;
-  overflow: hidden;
-  height: 50px;
+  height: 56px; /* Slightly taller for text */
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.2s;
+  text-align: left;
+}
+
+.app-store-btn:hover {
+  transform: translateY(-1px);
+  background: #111827;
 }
 
 .app-store-btn img {
-  height: 100%;
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.app-store-text {
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.app-store-text p {
+  margin: 0;
+}
+
+/* Make 'Chrome Web Store' larger */
+.app-store-text p span {
+  font-size: 1rem;
+  font-weight: 600;
   display: block;
 }
 
 .primary-btn {
-  background-color: #a3e635; /* Lime green */
+  background-color: #a3e635; /* Lime */
   color: #1a2e05;
   font-weight: 700;
   font-size: 1rem;
-  padding: 0 2rem;
-  height: 50px;
+  padding: 0 2.5rem;
+  height: 56px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   letter-spacing: 0.01em;
-  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(163, 230, 53, 0.3);
+  transition: all 0.2s;
 }
 
 .primary-btn:hover {
   background-color: #84cc16;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(163, 230, 53, 0.4);
 }
 
 /* Responsiveness */
@@ -194,11 +269,14 @@ body {
 
   .cta-container {
     flex-direction: column;
+    width: 100%;
   }
 
   .works-with-card {
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
+    width: 100%;
+    justify-content: center;
   }
 }

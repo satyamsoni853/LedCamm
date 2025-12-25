@@ -1,23 +1,14 @@
-/* Basic Setup */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: "Inter", sans-serif;
-  background-color: #ffffff;
-}
 
 .features-section {
   padding: 2rem 0;
   width: 100%;
-  margin-top: 2rem; /* Add some space if it follows Hero */
+  margin-top: 2rem; 
+  border-bottom: 5px solid rgb(179, 177, 177);
 }
 
 .features-container {
-  max-width: 1200px;
+  
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
@@ -34,7 +25,7 @@ body {
 }
 
 .feature-item img {
-  height: 32px; /* Consistent icon size */
+  height: 42px; /* Consistent icon size */
   width: auto;
   display: block;
 }
