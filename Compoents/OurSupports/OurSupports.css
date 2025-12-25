@@ -1,0 +1,355 @@
+/* Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+}
+
+.supports-section {
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Header */
+.header-content {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  position: relative;
+}
+
+.title-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.floating-icon {
+  position: absolute;
+  top: -40px;
+  right: -50px;
+  width: 60px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e1b4b; /* Navy */
+}
+
+.section-desc {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Diagram Layout */
+.diagram-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 2rem 0;
+  min-height: 600px; /* Space for the diagram */
+}
+
+/* Columns */
+.column {
+  z-index: 2;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Nodes */
+.node-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.source-circle {
+  border-color: #abdcfb; /* Light Blue Border */
+  width: 80px;
+  height: 80px;
+}
+
+.source-circle img {
+  width: 40px;
+  height: auto;
+}
+
+.label {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+/* CRM Sidebar */
+.crm-sidebar {
+  background: #eff6ff;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.target-circle {
+  width: 80px;
+  height: 80px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.target-circle img {
+  width: 50%;
+  height: auto;
+}
+
+.crm-hubspot {
+  background: #ff7a59;
+}
+.crm-pipedrive {
+  background: #00a651;
+}
+.crm-salesforce {
+  background: #fff;
+} /* Salesforce often on white */
+.crm-zoho {
+  background: #fff;
+}
+
+/* Center Logo */
+.center-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-logo-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(43, 149, 189, 0.2); /* Glow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.center-logo {
+  width: 80%;
+  height: auto;
+}
+
+/* Connectors & Pills (Decorations) */
+/* Positioning these absolutely is fragile but fastest for "drawing" without SVG lines */
+.connector-layer,
+.connector-layer-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.connector-layer {
+  left: 15%;
+  width: 35%;
+}
+
+.connector-layer-right {
+  right: 15%;
+  width: 30%;
+}
+
+.pill {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #93c5fd;
+  color: #3b82f6;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pill-sm {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+}
+.pill-green {
+  border-color: #86efac;
+  color: #16a34a;
+}
+.pill-orange {
+  border-color: #fdba74;
+  color: #ea580c;
+}
+.pill-red {
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+/* Manually position pills to match approx visual locations */
+/* Left side pills */
+.pos-1 {
+  top: 20%;
+  left: 0%;
+} /* Conversations top */
+.pos-2 {
+  top: 50%;
+  left: -10%;
+} /* First Name */
+.pos-3 {
+  top: 50%;
+  left: 40%;
+} /* Last Name */
+.pos-4 {
+  top: 75%;
+  left: 45%;
+} /* Website */
+.pos-5 {
+  top: 80%;
+  left: -10%;
+} /* Comp Emp */
+
+/* Right side pills */
+.pos-r1 {
+  top: 48%;
+  left: 10%;
+  border-color: #93c5fd;
+  color: #3b82f6;
+}
+.pos-r2 {
+  top: 48%;
+  left: 30%;
+}
+.pos-r3 {
+  top: 50%;
+  left: 50%;
+}
+.pos-r4 {
+  top: 52%;
+  left: 70%;
+}
+.pos-r5 {
+  top: 52%;
+  left: 90%;
+}
+
+/* Dashed Lines - Simplified horizontal line for the main axis */
+/* Complex bezier curves are hard in pure CSS. We'll add a central dashed line. */
+.line-set-left::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  right: -20px;
+  height: 2px;
+  border-top: 2px dashed #e5e7eb;
+  z-index: -1;
+}
+
+.connector-layer-right::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  right: -80px;
+  height: 2px;
+  border-top: 2px dashed #e5e7eb;
+  z-index: -1;
+}
+
+/* CTA */
+.cta-container {
+  margin-top: 4rem;
+}
+
+.cta-btn {
+  background-color: #a3e635; /* Lime Green */
+  color: #1a2e05;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.cta-btn:hover {
+  background-color: #84cc16;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .diagram-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .connector-layer,
+  .connector-layer-right {
+    display: none; /* Hide complex connectors on mobile */
+  }
+
+  .left-column {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .crm-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

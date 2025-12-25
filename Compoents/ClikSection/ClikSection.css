@@ -1,0 +1,77 @@
+/* Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+}
+
+.features-section {
+  padding: 2rem 0;
+  width: 100%;
+  margin-top: 2rem; /* Add some space if it follows Hero */
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-item img {
+  height: 32px; /* Consistent icon size */
+  width: auto;
+  display: block;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  color: #6b7280; /* Gray text matches image */
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.highlight-text {
+  color: #1f2937; /* Darker/Bold text */
+  font-weight: 700;
+  /* Optional: add a slight color tint if the bold text in image isn't pure black, looks dark blue-ish? */
+  color: #1e3a8a; /* Using a dark blue tone similar to provided image text color */
+}
+
+/* Specific Tweak for "Waterfall Enrichment" text color based on image visual inspection */
+/* Actually all highlighted text seems to be a dark navy blue */
+.highlight-text {
+  color: #172554;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .features-container {
+    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+}

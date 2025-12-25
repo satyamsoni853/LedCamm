@@ -1,0 +1,105 @@
+
+
+/* Navbar Container */
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+/* Logo */
+.navbar-logo img {
+  height: 40px; /* Adjust based on actual SVG size */
+  display: block;
+}
+
+/* Nav Links */
+.navbar-center .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #374151; /* Dark grey */
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #111827; /* Black */
+}
+
+.arrow {
+  font-size: 0.7rem;
+  transform: scaleX(1.2); /* Make the 'v' a bit wider to look like a chevron */
+}
+
+/* Buttons */
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: #2b95bd; /* Blue from image */
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #207a9b;
+}
+
+.btn-outline {
+  background-color: white;
+  color: #2b95bd;
+  border: 1px solid #e5e7eb; /* Light grey border */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover {
+  border-color: #2b95bd;
+  background-color: #f9fafb;
+}
+
+.login-icon {
+  font-size: 1.1rem;
+  line-height: 0;
+}
+
+/* Responsive Helper (Simple) */
+@media (max-width: 900px) {
+  .navbar-center {
+    display: none; /* Hide links on small screens for now as per simple requirement */
+  }
+}

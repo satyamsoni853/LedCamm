@@ -1,0 +1,175 @@
+/* Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f7f9fc; /* Slight grey-blue tint from image */
+}
+
+.how-it-works-section {
+  max-width: 1400px; /* Wider for 4 cards */
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.header-container {
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  padding-left: 1rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e3a8a; /* Dark Blue */
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.section-subtitle .bold {
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Steps Container */
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto 4rem auto;
+}
+
+/* The Connector Line */
+/* This is tricky to get exactly like the wiggly blue line in the image with pure CSS. 
+   I will use a dashed border or SVG background approach. 
+   For simplicity and robustness, I'll use a pseudo element with a dashed border positioned behind the numbers. */
+.connector-line {
+  position: absolute;
+  top: 60px; /* Aligned with numbers roughly */
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  border-top: 3px dashed #3b82f6; /* Blue dashed line */
+  z-index: 0;
+  opacity: 0.6;
+  display: none; /* Hiding simple line to try drawing a wave if possible, or just keep it simple if user didn't provide asset */
+}
+/* Re-enabling a simple version or maybe we can try to make it look curved with multiple elements? 
+   Let's stick to a simple dashed line for now as I don't have the vector asset.*/
+.connector-line {
+  display: block;
+  border-top: 4px dashed #60a5fa;
+  top: 70px;
+}
+
+/* Step Card */
+.step-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1; /* Above dashed line */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+  font-family: "Caveat", cursive; /* Using handwritten style for number looks closer to image's casual font */
+  /* Actually the image uses a slanted bold sans-serif, maybe italic? Let's use italic bold Inter or just standard sans-serif */
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #2b95bd; /* Blue */
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  background: #fff; /* Hide line behind number */
+  padding: 0 10px;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a8a; /* Dark Blue */
+  margin-bottom: 1rem;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  min-height: 60px; /* Align images */
+}
+
+.step-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* slight shadow for internal image styling */
+}
+
+/* CTA */
+.cta-container {
+  margin-top: 2rem;
+}
+
+.cta-btn {
+  background-color: #a3e635; /* Lime Green */
+  color: #1a2e05;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-btn:hover {
+  background-color: #84cc16;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .steps-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .step-card {
+    flex: 1 1 45%; /* 2 per row */
+    max-width: 400px;
+  }
+  .connector-line {
+    display: none; /* Hide line on wrap */
+  }
+}
+
+@media (max-width: 650px) {
+  .step-card {
+    flex: 1 1 100%;
+  }
+  .header-container {
+    text-align: center;
+    padding: 0;
+  }
+}

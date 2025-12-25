@@ -1,0 +1,73 @@
+/* Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f7f9fc; /* Light background matching previous sections often */
+}
+
+.thousands-section {
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e1b4b; /* Navy */
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+}
+
+.banner-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* CTA */
+.cta-container {
+  margin-top: 1rem;
+}
+
+.cta-btn {
+  background-color: #a3e635; /* Lime Green */
+  color: #1a2e05;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-btn:hover {
+  background-color: #84cc16;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
