@@ -7,11 +7,46 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f7f9fc; /* Slight grey-blue tint from image */
+  background-color: #ffffff;
+  color: #111827;
+  /* Grid Pattern Background - Subtle Blue Lines */
+  background-image: linear-gradient(#e0f2fe 1px, transparent 1px),
+    linear-gradient(90deg, #e0f2fe 1px, transparent 1px);
+  background-size: 150px 300px; /* Standardize grid size */
+  background-position: center top;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Add subtle blue background blocks to mimic the image */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 12px;
+  opacity: 0.4;
+}
+
+body::before {
+  width: 150px;
+  height: 150px;
+  background: #e0f2fe;
+  top: 100px;
+  left: 5%;
+  transform: rotate(-10deg);
+}
+
+body::after {
+  width: 200px;
+  height: 200px;
+  background: #f0f9ff;
+  top: 200px;
+  right: 5%;
+  transform: rotate(15deg);
 }
 
 .how-it-works-section {
- 
   margin: 4rem auto;
   padding: 0 1rem;
   text-align: center;
@@ -19,7 +54,7 @@ body {
 
 .header-container {
   text-align: left;
-  
+
   margin: 0 auto 3rem auto;
   padding-left: 1rem;
 }
