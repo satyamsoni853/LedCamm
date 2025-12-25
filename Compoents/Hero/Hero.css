@@ -1,19 +1,7 @@
-/* Basic Setup */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Inter", sans-serif;
-  background-color: #ffffff;
+  background: linear-gradient(to top, #e0f2fe, #ffffff);
   color: #111827;
-  /* Grid Pattern Background - Subtle Blue Lines */
-  background-image: linear-gradient(#e0f2fe 1px, transparent 1px),
-    linear-gradient(90deg, #e0f2fe 1px, transparent 1px);
-  background-size: 150px 300px; /* Standardize grid size */
-  background-position: center top;
   position: relative;
   overflow-x: hidden;
 }
@@ -119,7 +107,7 @@ body::after {
 
 /* Works With Card */
 .works-with-card {
-  background: linear-gradient(90deg, #7dd3fc 0%, #a78bfa 50%, #f472b6 100%);
+  background: #e5e7eb;
   padding: 1rem 3rem;
   border-radius: 16px;
   display: flex;

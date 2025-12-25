@@ -5,23 +5,20 @@
 .navbar {
   width: 100%;
   background-color: #ffffff;
-  border-bottom: 1px solid #f3f4f6; /* Very subtle border */
-  padding: 1rem 0; /* More breathing room */
-  font-family: "Inter", sans-serif;
-  transition: background-color 0.3s, border-color 0.3s;
+  border-bottom: 1px solid #f3f4f6; 
+  padding: 1rem 0; 
 }
 
 .navbar-container {
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* Space out Logo - Links - Buttons */
+  justify-content: space-between; 
   align-items: center;
   padding: 0 2rem;
 }
 
 /* Logo */
 .navbar-logo img {
-  height: 40px; /* Matched to typical SaaS logo size */
   display: block;
 }
 
@@ -29,8 +26,8 @@
 .navbar-center {
   flex-grow: 1;
   display: flex;
-  justify-content: center; /* Center links in the available space */
-  padding-left: 2rem; /* Offset for balance */
+  justify-content: center; 
+  padding-left: 2rem; 
 }
 
 .nav-links {
@@ -76,7 +73,7 @@
 }
 
 .btn {
-  padding: 0.65rem 1.4rem; /* Match chunky look */
+  padding: 0.65rem 1.4rem; 
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.95rem;

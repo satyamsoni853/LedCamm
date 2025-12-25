@@ -4,13 +4,13 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; 
 }
 iframe {
   width: 100%;
   border: none;
   display: block;
-  overflow: hidden !important; /* Force hide scrollbars */
+  overflow: hidden !important; 
   margin: 0;
   padding: 0;
   pointer-events: auto;
