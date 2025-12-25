@@ -11,26 +11,25 @@ body {
 }
 
 .thousands-section {
-  max-width: 1400px;
   margin: 4rem auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: start;
+  text-align: start;
 }
 
 .section-title {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #1e1b4b; /* Navy */
+  color: #1e1b4b;
   margin-bottom: 2.5rem;
-  max-width: 800px;
+  text-align: start;
 }
 
 .banner-container {
   width: 100%;
-  max-width: 1200px;
+
   margin-bottom: 3rem;
 }
 
@@ -43,12 +42,16 @@ body {
 /* CTA */
 .cta-container {
   margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .cta-btn {
   background-color: #a3e635; /* Lime Green */
   color: #1a2e05;
   padding: 1rem 2.5rem;
+
   font-size: 1.1rem;
   font-weight: 700;
   border: none;

@@ -86,9 +86,10 @@ body {
 .connector-line {
   fill: none;
   stroke: #cbd5e1;
- 
+
   stroke-width: 2;
-  stroke-dasharray: 8.8;
+  stroke-width: 2;
+  stroke-dasharray: 8 8;
   stroke-linecap: round;
 }
 
@@ -194,7 +195,6 @@ body {
   justify-content: center;
   border: 4px solid #fff; /* White ring */
   position: relative;
-  
 }
 /* Hexagon image inside */
 .center-logo {
@@ -212,7 +212,6 @@ body {
   flex-direction: column;
   gap: 3.25rem;
   align-items: center;
-  
 }
 .crm-sidebar .target-circle {
   width: 64px;
@@ -252,7 +251,7 @@ body {
 .crm-zoho {
   background: #ffffff;
 }
-.icon-box{
+.icon-box {
   display: flex;
   width: 100px;
   align-items: center;
@@ -268,6 +267,95 @@ body {
   height: 100%;
   z-index: 6;
   pointer-events: none;
+}
+
+/* Dots Layer */
+.dots-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4; /* Below nodes (5) but above SVG (1) */
+  pointer-events: none;
+}
+
+.dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1; /* Default */
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+/* Dot Colors */
+.dot-blue {
+  background: #38bdf8;
+  box-shadow: 0 0 0 2px #e0f2fe;
+}
+.dot-green {
+  background: #4ade80;
+  box-shadow: 0 0 0 2px #dcfce7;
+}
+.dot-orange {
+  background: #fb923c;
+  box-shadow: 0 0 0 2px #ffedd5;
+}
+.dot-red {
+  background: #f87171;
+  box-shadow: 0 0 0 2px #fee2e2;
+}
+
+/* Dot Positions */
+
+/* Left Side - On the lines */
+/* Top Line (Curved) */
+.dot-l-1 {
+  left: 25%;
+  top: 21%; /* Slightly higher to sit on the curve */
+}
+
+/* Mid Line - Flat at 50% y */
+.dot-l-2 {
+  left: 25%;
+  top: 50%;
+}
+.dot-l-4{
+  left: 35%;
+  top: 50%;
+}
+.dot-l-5{
+  left: 37%;
+  top: 74%;
+}
+/* Bot Line (Curved) */
+.dot-l-3 {
+  left: 25%;
+  top: 79%; /* Slightly lower to sit on the curve */
+}
+
+/* Right Side - Aligned with pills */
+.dot-r-1 {
+  left: 58%;
+  top: 50%;
+}
+.dot-r-2 {
+  left: 65%;
+  top: 50%;
+}
+.dot-r-3 {
+  left: 72%;
+  top: 50%;
+}
+.dot-r-4 {
+  left: 79%;
+  top: 50%;
+}
+.dot-r-5 {
+  left: 86%;
+  top: 50%;
 }
 
 .pill {
@@ -322,7 +410,9 @@ body {
   top: 18%;
   left: 25%;
 } /* Conversations */
-
+.linkedin-icon{
+  margin-right: 10px;
+}
 /* Mid Left Stream */
 .pos-l-2a {
   top: 45%;
@@ -340,7 +430,7 @@ body {
 } /* Company Employees */
 .pos-l-3b {
   top: 70%;
-  left: 40%;
+  left: 37%;
 } /* Website (rising) */
 
 /* Right Side Stream (Linear Alignment) */
@@ -409,7 +499,8 @@ body {
   .connector-svg {
     display: none;
   }
-  .pills-layer {
+  .pills-layer,
+  .dots-layer {
     display: none;
   }
 

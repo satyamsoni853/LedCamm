@@ -17,14 +17,14 @@ body {
 }
 
 .footer-content {
-  max-width: 1400px;
+
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; /* Allow wrapping on small screens */
   gap: 3rem;
   margin-bottom: 3rem;
-  border-bottom: 1px solid #cbd5e1;
+ 
   padding-bottom: 3rem;
 }
 
@@ -154,7 +154,7 @@ body {
 /* Bottom */
 .footer-bottom {
   text-align: center;
-  max-width: 1200px;
+  
   margin: 0 auto;
 }
 
@@ -168,6 +168,8 @@ body {
 .copyright {
   font-size: 0.9rem;
   color: #64748b;
+  margin-top: 20px;
+  border-top: 2px solid rgb(221, 218, 218);
 }
 
 /* Responsive */
