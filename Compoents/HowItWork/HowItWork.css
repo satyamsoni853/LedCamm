@@ -50,6 +50,17 @@ body::after {
   margin: 2rem auto; /* Reduced from 4rem */
   padding: 0 1rem;
   text-align: center;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+/* Decorative Ball Positioning */
+.decorative-ball {
+  position: absolute;
+  bottom: -50px; /* Adjust as needed */
+  right: -50px; /* Adjust as needed */
+  z-index: -1;
+  max-width: 150px; /* Prevent it from being too huge if original is large */
+  pointer-events: none; /* Prevent interference with clicks */
 }
 
 .header-container {

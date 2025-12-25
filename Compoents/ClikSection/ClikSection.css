@@ -2,7 +2,8 @@
   padding: 1rem 0; /* Reduced from 2rem */
   width: 100%;
   margin-top: 0rem; /* Reduced from 2rem */
-  border-bottom: 5px solid rgb(179, 177, 177);
+  border-bottom: 2px solid rgb(179, 177, 177);
+  padding:100px 0px;
 }
 
 .features-container {
