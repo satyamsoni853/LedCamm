@@ -21,7 +21,7 @@ body {
 .decorative-circle {
   position: absolute;
   bottom: -50px;
-  right: -50px;
+  right: 0px;
   z-index: -1;
   max-width: 200px; /* Adjust size as needed based on the image */
   pointer-events: none;

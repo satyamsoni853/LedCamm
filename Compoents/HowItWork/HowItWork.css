@@ -56,8 +56,8 @@ body::after {
 /* Decorative Ball Positioning */
 .decorative-ball {
   position: absolute;
-  bottom: -50px; /* Adjust as needed */
-  right: -50px; /* Adjust as needed */
+  bottom: -10px; /* Adjust as needed */
+  right: -10px; /* Adjust as needed */
   z-index: -1;
   max-width: 150px; /* Prevent it from being too huge if original is large */
   pointer-events: none; /* Prevent interference with clicks */
