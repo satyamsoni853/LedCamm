@@ -47,7 +47,7 @@ body::after {
 }
 
 .how-it-works-section {
-  margin: 4rem auto;
+  margin: 2rem auto; /* Reduced from 4rem */
   padding: 0 1rem;
   text-align: center;
 }

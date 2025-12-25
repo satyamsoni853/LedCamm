@@ -11,7 +11,7 @@ body {
 }
 
 .thousands-section {
-  margin: 4rem auto;
+  margin: 1rem auto; /* Reduced from 4rem */
   padding: 0 1rem;
   display: flex;
   flex-direction: column;

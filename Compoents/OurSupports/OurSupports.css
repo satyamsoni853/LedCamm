@@ -11,7 +11,7 @@ body {
 }
 
 .supports-section {
-  margin: 4rem auto;
+  margin: 1rem auto; /* Reduced from 4rem */
   padding: 0 1rem;
   text-align: center;
 }
@@ -322,11 +322,11 @@ body {
   left: 25%;
   top: 50%;
 }
-.dot-l-4{
+.dot-l-4 {
   left: 35%;
   top: 50%;
 }
-.dot-l-5{
+.dot-l-5 {
   left: 37%;
   top: 74%;
 }
@@ -410,7 +410,7 @@ body {
   top: 18%;
   left: 25%;
 } /* Conversations */
-.linkedin-icon{
+.linkedin-icon {
   margin-right: 10px;
 }
 /* Mid Left Stream */

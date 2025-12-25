@@ -1,14 +1,17 @@
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-      }
-      iframe {
-        width: 100%;
-        border: none;
-        display: block;
-        
-      }
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+iframe {
+  width: 100%;
+  border: none;
+  display: block;
+  overflow: hidden !important; /* Force hide scrollbars */
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}

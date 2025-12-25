@@ -8,9 +8,8 @@ body {
 
 .sales-solution-section {
   position: relative;
-
   margin: 0 auto;
-  padding-top: 60px;
+  padding-top: 2rem; /* Reduced from 60px */
 }
 
 /* Robot */
