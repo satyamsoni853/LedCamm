@@ -7,8 +7,8 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f7f9fc; /* Light background matching previous sections often */
-}
+  background-color: #f7f9fc;
+  padding: 50px;
 
 .thousands-section {
   margin: 1rem auto; /* Reduced from 4rem */

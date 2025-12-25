@@ -8,6 +8,7 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: #ffffff;
+  
   color: #111827;
   /* Grid Pattern Background - Subtle Blue Lines */
   background-image: linear-gradient(#e0f2fe 1px, transparent 1px),
@@ -16,6 +17,7 @@ body {
   background-position: center top;
   position: relative;
   overflow-x: hidden;
+  padding: 50px;
 }
 
 /* Add subtle blue background blocks to mimic the image */
@@ -56,8 +58,8 @@ body::after {
 /* Decorative Ball Positioning */
 .decorative-ball {
   position: absolute;
-  bottom: -10px; /* Adjust as needed */
-  right: -10px; /* Adjust as needed */
+  bottom: -50px; /* Adjust as needed */
+  right: -50px; /* Adjust as needed */
   z-index: -1;
   max-width: 150px; /* Prevent it from being too huge if original is large */
   pointer-events: none; /* Prevent interference with clicks */

@@ -2,8 +2,8 @@
   padding: 1rem 0; /* Reduced from 2rem */
   width: 100%;
   margin-top: 0rem; /* Reduced from 2rem */
-  border-bottom: 2px solid rgb(179, 177, 177);
-  padding:100px 0px;
+  border-bottom: 1px solid rgb(208, 206, 206);
+  padding:50px 0px;
 }
 
 .features-container {
