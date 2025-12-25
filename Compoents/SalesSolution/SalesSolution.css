@@ -153,7 +153,7 @@ body {
 }
 
 .card-header-text h3 {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 700;
   color: #1e293b;
   margin-top: 0;
@@ -199,10 +199,11 @@ body {
 .waterfall-diagram {
   width: 100%;
   display: flex;
-  background-color: white;
-  padding: 15px;
-  border-radius: 20px;
   flex-direction: column;
+  background-color: #ffffff;
+  padding: 70px;
+  border-radius: 20px;
+  box-sizing: border-box; /* Ensure padding doesn't overflow width */
 }
 
 .wf-row {
@@ -215,7 +216,7 @@ body {
 .wf-label {
   min-width: 70px;
   text-align: right;
-  color: #64748b;
+  color: #94a3b8; /* Lighter gray for labels */
   font-size: 14px;
   font-weight: 500;
 }
@@ -223,31 +224,33 @@ body {
 .wf-content {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .vendor-pill {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 16px 6px 6px;
+  padding: 5px 16px 5px 5px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 14px;
-  color: #1e293b;
-  background-color: #f1f5f9; /* Default gray bg */
+  color: #334155;
+  background-color: #f8fafc;
   min-width: 140px;
+  border: 1px solid #f1f5f9; /* Subtle border */
 }
 
 .v-icon-circle {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fff;
+  flex-shrink: 0;
 }
 .v-icon-circle img {
   width: 100%;
@@ -261,37 +264,42 @@ body {
 .purple-bg {
   background-color: #1e293b;
   color: white;
-} /* Dark theme for rocket */
+}
 
 .v-text-icon {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #334155;
-  width: 32px;
+  width: 30px;
   text-align: center;
 }
 
 /* Specific Pill Backgrounds */
 .vp-dropcontact {
   background-color: #f0fdfa;
-} /* Teal-ish light */
+  border-color: #ccfbf1;
+}
 .vp-dropcontact .v-icon-circle {
   background-color: #14b8a6;
-} /* Teal Icon bg */
+}
 
 .vp-datagma {
   background-color: #eff6ff;
+  border-color: #dbeafe;
 }
 .vp-rocket {
   background-color: #f1f5f9;
-}
+  border-color: #e2e8f0;
+} /* Grayish */
 .vp-signal {
-  background-color: #f1f5f9;
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
 }
 
 .status-text {
   color: #94a3b8;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 /* Staggering Indents */
@@ -299,39 +307,37 @@ body {
   margin-left: 0px;
 }
 .row-2 {
-  margin-left: 60px;
-}
+  margin-left: 40px;
+} /* Reduced stagger to keep it compact */
 .row-3 {
-  margin-left: 120px;
+  margin-left: 80px;
 }
 .row-4 {
-  margin-left: 180px;
+  margin-left: 120px;
 }
 
 /* Arrows */
 .wf-arrow {
-  color: #94a3b8;
-  font-size: 20px;
+  color: #cbd5e1; /* Lighter arrow color */
+  font-size: 18px;
   line-height: 1;
-  margin: 2px 0;
-  /* Calc arrow position: Label(70) + Gap(15) + PillCenter(~70) = ~155px? */
-  /* Relative to the ROW start. */
-  /* Actually, arrows need to connect the pills. */
-  /* Arrow 1: Connects Row 1 Pill to Row 2 Pill? No, visual shows arrows dropping down from the previous level. */
-  /* Let's manually position arrows with margins matching rows. */
-  /* Arrow 1 should be under Row 1 pill. Row 1 pill starts at 70+15 = 85px. Center ~85+70=155px. */
-  /* Arrow 2 under Row 2 pill. Row 2 pill starts at (60) + 85 = 145px. Center ~215px. */
+  margin: 4px 0;
+  /* Align relative to the PREVIOUS pill center */
+  /* Row 1 Pill Center: Label(70)+Gap(15)+Pill(140)/2 = 85+70=155 */
+  /* Arrow 1 @ 155px. */
+  /* Row 2 Pill Center: 40 + 155 = 195 */
+  /* Arrow 2 @ 195px */
 }
 
 .arrow-1 {
   margin-left: 155px;
-} /* 70 label + 15 gap + ~70 half pill */
+}
 .arrow-2 {
-  margin-left: 215px;
-} /* 60 indent + 155 */
+  margin-left: 195px;
+}
 .arrow-3 {
-  margin-left: 275px;
-} /* 120 indent + 155 */
+  margin-left: 235px;
+}
 
 /* Success Badges specific */
 .success-content {
@@ -396,15 +402,14 @@ body {
 .card-header-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centered headers */
   gap: 10px;
   margin-bottom: 24px;
 }
 .header-icon-img {
-  font-size: 24px;
-}
-.search-green {
-  color: #22c55e;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 .marketing-card h4 {
   margin: 0;
@@ -529,7 +534,7 @@ body {
 
 .contacts-found-btn {
   width: 100%;
-  background: #334155;
+  background: #1e293b; /* Darker Slate/Black */
   color: #fff;
   border: none;
   border-radius: 8px;
