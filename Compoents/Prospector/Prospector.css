@@ -61,7 +61,6 @@
 .card-title {
   font-size: 1.5rem;
   font-weight: 700;
- 
 }
 
 .text-red {
@@ -122,7 +121,6 @@
 .content p {
   font-size: 0.9rem;
   color: #6b7280;
- 
 }
 
 /* Tags */
@@ -170,46 +168,61 @@
 
 /* CTA Area */
 .cta-area {
-  margin-top: 4rem;
+  margin-top: 5rem;
   position: relative;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .cta-button {
-  background-color: #bef264; /* Lime Green like image */
-  color: #1a2e05;
+  background-color: #a3e635; /* Lighter/Brighter Lime */
+  color: #0f172a;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   padding: 1rem 2.5rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(163, 230, 53, 0.4);
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 .cta-button:hover {
-  background-color: #a3e635;
+  background-color: #84cc16;
   transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(163, 230, 53, 0.5);
 }
 
-.handwritten-note {
-  position: absolute;
-      top: -54px;
-    right: -209px;
+.handwritten-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.handwritten-text {
   font-family: "Caveat", cursive;
-  font-size: 1.5rem;
-  color: #166534; /* Dark green */
+  font-size: 2rem;
+  color: #166534; /* Dark green text */
   line-height: 1.2;
-  text-align: left;
-  transform: rotate(-5deg);
+  transform: rotate(-3deg);
+  margin-bottom: 0px;
+  margin-left: 10px;
 }
 
-.hand-arrow {
-  display: block;
-  margin-top: -5px;
+.arrow-svg {
+  color: #334155;
+  width: 120px;
+  height: auto;
+  transform: rotate(-20deg) translateY(-10px);
   margin-left: -20px;
-  color: #4b5563; /* Gray arrow */
+  /* Adjust positioning to connect button to text if needed. */
+  /* For now, just placing it nearby as a decorative element. */
+  position: absolute;
+  left: -50px;
+  bottom: -30px;
 }
 
 /* Responsiveness */
@@ -229,16 +242,17 @@
     width: 100%;
   }
 
-  .handwritten-note {
-    position: static;
-    margin-top: 1rem;
-    text-align: center;
-    transform: none;
-    display: inline-block;
+  .cta-area {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .hand-arrow {
-    display: none; /* Hide arrow on mobile for simplicity */
+  .handwritten-group {
+    align-items: center;
+  }
+
+  .arrow-svg {
+    display: none;
   }
 }
 
