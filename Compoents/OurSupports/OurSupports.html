@@ -36,58 +36,65 @@
           viewBox="0 0 1200 600"
           preserveAspectRatio="xMidYMid meet"
         >
-          <defs>
-            <marker
-              id="arrowhead"
-              markerWidth="10"
-              markerHeight="7"
-              refX="9"
-              refY="3.5"
-              orient="auto"
-            >
-              <polygon points="0 0, 10 3.5, 0 7" fill="#cbd5e1" />
-            </marker>
-          </defs>
-          <!-- Paths will be drawn via CSS or simple attributes here for the static background -->
-          <!-- Left Top to Center -->
+          <!-- Paths matching the node coordinates in CSS -->
+          <!-- Left Top (10%, 20%) -> Center (50%, 50%) -->
+          <!-- 10% of 1200=120, 20% of 600=120 -->
+          <!-- 50% of 1200=600, 50% of 600=300 -->
           <path
-            d="M 150 100 C 350 100, 350 300, 580 300"
-            class="connector-line dashed-blue"
-          />
-          <!-- Left Mid to Center -->
-          <path d="M 150 300 L 580 300" class="connector-line dashed-blue" />
-          <!-- Left Bot to Center -->
-          <path
-            d="M 150 500 C 350 500, 350 300, 580 300"
-            class="connector-line dashed-blue"
+            d="M 100 120 C 700 120, 350 300, 600 300"
+            class="connector-line"
           />
 
-          <!-- Center to Right -->
-          <path d="M 720 300 L 1050 300" class="connector-line dashed-green" />
+          <!-- Left Mid (10%, 50%) -> Center -->
+          <path d="M 120 300 L 600 300" class="connector-line" />
+
+          <!-- Left Bot (10%, 80%) -> Center -->
+          <!-- 80% of 600=480 -->
+          <path
+            d="M 120 480 C 700 480, 350 300, 600 300"
+            class="connector-line"
+          />
+
+          <!-- Center (50%, 50%) -> Right (92%, 50%) -->
+          <!-- 92% of 1200 = 1104 -->
+          <!-- The right line seems flat in image -->
+          <path d="M 670 300 L 1100 300" class="connector-line" />
         </svg>
 
         <!-- Left Column Nodes -->
         <div class="nodes-layer">
           <div class="node-pos left-top">
-            <div class="icon-circle source-circle blue-icon">
+            <div class="icon-circle blue-icon">
               <img
                 src="../../Assests/OurSupports/left1.png"
                 alt="Conversation"
               />
             </div>
-            <span class="label">Conversation</span>
+
+            <div class="icon-box">
+              <img src="../../Assests//OurSupports/Linkedin.png" alt="" />
+              <span class="label">Conversation</span>
+            </div>
           </div>
           <div class="node-pos left-mid">
-            <div class="icon-circle source-circle blue-icon">
+            <div class="icon-circle blue-icon">
               <img src="../../Assests/OurSupports/left2.png" alt="Contacts" />
             </div>
-            <span class="label">Contacts</span>
+
+            <div class="icon-box">
+              <img src="../../Assests//OurSupports/Linkedin.png" alt="" />
+              <span class="label">Contacts</span>
+            </div>
           </div>
           <div class="node-pos left-bot">
-            <div class="icon-circle source-circle blue-icon">
+            <div class="icon-circle blue-icon">
               <img src="../../Assests/OurSupports/left3.png" alt="Companies" />
             </div>
-            <span class="label">Companies</span>
+
+            <div class="icon-box">
+              <img src="../../Assests//OurSupports/Linkedin.png" alt="" />
+              <span class="label">Companies</span>
+            </div>
           </div>
 
           <!-- Center Node -->
@@ -104,22 +111,22 @@
           <!-- Right Column (The CRM Bar) -->
           <div class="node-pos right-bar">
             <div class="crm-sidebar">
-              <div class="icon-circle target-circle crm-hubspot">
+              <div class="target-circle crm-hubspot">
                 <img src="../../Assests/OurSupports/right1.png" alt="HubSpot" />
               </div>
-              <div class="icon-circle target-circle crm-pipedrive">
+              <div class="target-circle crm-pipedrive">
                 <img
                   src="../../Assests/OurSupports/right2.png"
                   alt="Pipedrive"
                 />
               </div>
-              <div class="icon-circle target-circle crm-salesforce">
+              <div class="target-circle crm-salesforce">
                 <img
                   src="../../Assests/OurSupports/right3.png"
                   alt="Salesforce"
                 />
               </div>
-              <div class="icon-circle target-circle crm-zoho">
+              <div class="target-circle crm-zoho">
                 <img src="../../Assests/OurSupports/right4.png" alt="Zoho" />
               </div>
             </div>
@@ -138,11 +145,11 @@
           <span class="pill pill-blue pos-l-3b">Website</span>
 
           <!-- Right Side Pills -->
-          <span class="pill pill-sky pos-r-1">Employee</span>
-          <span class="pill pill-green pos-r-2">Website</span>
-          <span class="pill pill-orange pos-r-3">Conversations</span>
-          <span class="pill pill-red pos-r-4">Last Name</span>
-          <span class="pill pill-orange pos-r-5">First Name</span>
+          <span class="pill pill-emp pos-r-1">Employee</span>
+          <span class="pill pill-web pos-r-2">Website</span>
+          <span class="pill pill-conv pos-r-3">Conversations</span>
+          <span class="pill pill-last pos-r-4">Last Name</span>
+          <span class="pill pill-first pos-r-5">First Name</span>
         </div>
       </div>
 
