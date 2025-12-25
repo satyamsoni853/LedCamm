@@ -1,12 +1,10 @@
-
-
 .prospector-section {
- 
   margin: 3rem auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative; /* Added for absolute positioning of decorators */
 }
 
 .section-title {
@@ -31,7 +29,7 @@
 .card {
   background: #fff;
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.2rem;
   flex: 1;
   max-width: 500px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft shadow */
@@ -63,7 +61,7 @@
 .card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+ 
 }
 
 .text-red {
@@ -85,12 +83,12 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .list-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -124,7 +122,7 @@
 .content p {
   font-size: 0.9rem;
   color: #6b7280;
-  line-height: 1.5;
+ 
 }
 
 /* Tags */
@@ -197,8 +195,8 @@
 
 .handwritten-note {
   position: absolute;
-  top: -20px;
-  right: -140px;
+      top: -54px;
+    right: -209px;
   font-family: "Caveat", cursive;
   font-size: 1.5rem;
   color: #166534; /* Dark green */
@@ -241,5 +239,42 @@
 
   .hand-arrow {
     display: none; /* Hide arrow on mobile for simplicity */
+  }
+}
+
+/* Vertical Line for VS */
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #e5e7eb;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Ensure VS badge is on top */
+.vs-badge {
+  z-index: 10;
+  border: 4px solid #fff; /* Create some space around the circle against the line */
+}
+
+/* Background Decoration */
+.bg-decoration-bottom-left {
+  position: absolute;
+  bottom: 50px;
+  left: -0px;
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* Hide decoration on mobile if needed */
+@media (max-width: 1100px) {
+  .bg-decoration-bottom-left {
+    display: none;
   }
 }

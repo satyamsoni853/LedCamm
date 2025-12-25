@@ -11,7 +11,7 @@ body {
 }
 
 .how-it-works-section {
-  max-width: 1400px; /* Wider for 4 cards */
+ 
   margin: 4rem auto;
   padding: 0 1rem;
   text-align: center;
@@ -19,7 +19,7 @@ body {
 
 .header-container {
   text-align: left;
-  max-width: 1200px;
+  
   margin: 0 auto 3rem auto;
   padding-left: 1rem;
 }
@@ -47,7 +47,7 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
   position: relative;
-  max-width: 1300px;
+
   margin: 0 auto 4rem auto;
 }
 
@@ -61,16 +61,18 @@ body {
   left: 10%;
   right: 10%;
   height: 2px;
-  border-top: 3px dashed #3b82f6; /* Blue dashed line */
+  border-top: 3px solid #3b82f6; /* Blue dashed line */
   z-index: 0;
   opacity: 0.6;
+
+  transform: rotate(2deg);
   display: none; /* Hiding simple line to try drawing a wave if possible, or just keep it simple if user didn't provide asset */
 }
 /* Re-enabling a simple version or maybe we can try to make it look curved with multiple elements? 
    Let's stick to a simple dashed line for now as I don't have the vector asset.*/
 .connector-line {
   display: block;
-  border-top: 4px dashed #60a5fa;
+  border-top: 4px solid #60a5fa;
   top: 70px;
 }
 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Solution</title>
+    <link rel="stylesheet" href="SalesSolution.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sales-solution-section">
+      <!-- Floating Robot -->
+      <div class="robot-container">
+        <img
+          src="../../Assests/SalesSolution/robot.png"
+          alt="Robot"
+          class="robot-img"
+        />
+      </div>
+
+      <!-- Header -->
+      <div class="header-content">
+        <h2>Complete LinkedIn Sales Solutions</h2>
+        <p>Everything you need for professional LinkedIn prospecting</p>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="openTab('crm-enrichment')">
+          <img src="../../Assests/SalesSolution/crm.png" alt="Icon" />
+          CRM Data Enrichment
+        </button>
+        <button class="tab-btn" onclick="openTab('crm-sync')">
+          <img src="../../Assests/SalesSolution/data.png" alt="Icon" />
+          CRM Data Sync
+        </button>
+        <button class="tab-btn" onclick="openTab('bulk-export')">
+          <img src="../../Assests/SalesSolution/bulk.png" alt="Icon" />
+          Bulk Export & Enrichment
+        </button>
+        <button class="tab-btn" onclick="openTab('ai-productivity')">
+          <img src="../../Assests/SalesSolution/ai.png" alt="Icon" />
+          AI Productivity
+        </button>
+        <div class="tab-line"></div>
+      </div>
+
+      <!-- Tab Contents -->
+      <div class="tab-content-container">
+        <!-- Tab 1: CRM Data Enrichment -->
+        <div id="crm-enrichment" class="tab-pane active">
+          <p class="section-intro">
+            It's hard to find the accurate contact data for every prospects by
+            <span class="tag-incomplete">Incomplete Data</span>
+          </p>
+
+          <div class="cards-grid">
+            <!-- Left Card -->
+            <div class="solution-card left-card">
+              <div class="card-header-text">
+                <h3>Here is how LeadCRM tackles that situation.</h3>
+                <a href="#" class="arrow-link"
+                  >Try LeadCRM Data Enrichment &gt;</a
+                >
+              </div>
+
+              <div class="card-visual">
+                <div class="visual-container">
+                  
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Card -->
+            <div class="solution-card right-card">
+              <div class="card-header-text">
+                <h3>
+                  If it does not works for you ! try our
+                  <a href="#" class="text-green-link"
+                    >Advanced Waterfall Enrichment &gt;</a
+                  >
+                </h3>
+              </div>
+
+              <div class="waterfall-diagram">
+                <div class="step">
+                  <span class="label">Vendor 1</span>
+                  <div class="vendor-pill">
+                    <span class="vendor-icon c-icon">C</span> DropContact
+                  </div>
+                  <span class="status-x">✕ Contacts Not Found</span>
+                </div>
+                <div class="arrow-connector">↓</div>
+
+                <div class="step">
+                  <span class="label">Vendor 2</span>
+                  <div class="vendor-pill">
+                    <span class="vendor-icon d-icon">d</span> Datagma
+                  </div>
+                  <span class="status-x">✕ Contacts Not Found</span>
+                </div>
+                <div class="arrow-connector">↓</div>
+
+                <div class="step">
+                  <span class="label">Vendor 3</span>
+                  <div class="vendor-pill">
+                    <!-- Rocket emoji is good, or use an image if available. No rocket.png found. Keeping emoji. -->
+                    <span class="vendor-icon r-icon">🚀</span> Rocket Reach
+                  </div>
+                  <span class="status-x">✕ Contacts Not Found</span>
+                </div>
+                <div class="arrow-connector">↓</div>
+
+                <div class="step">
+                  <span class="label">Vendor 4</span>
+                  <div class="vendor-pill">
+                    <span class="vendor-icon s-icon">SH</span> Signal Hire
+                  </div>
+                  <div class="success-icons">
+                    <img
+                      src="../../Assests/SalesSolution/crm.png"
+                      class="success-icon-img"
+                      alt="Found"
+                      style="display: none"
+                    />
+                    <!-- placeholder if needed -->
+                    <span class="s-icon-circle phone">📞</span>
+                    <span class="s-icon-circle check">✅</span>
+                    <span class="s-icon-circle mail">✉️</span>
+                    <span class="s-icon-circle check">✅</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other tabs placeholders -->
+        <div id="crm-sync" class="tab-pane" style="display: none">
+          <h3>CRM Data Sync Content</h3>
+          <p>Content coming soon...</p>
+        </div>
+        <div id="bulk-export" class="tab-pane" style="display: none">
+          <h3>Bulk Export Content</h3>
+          <p>Content coming soon...</p>
+        </div>
+        <div id="ai-productivity" class="tab-pane" style="display: none">
+          <h3>AI Productivity Content</h3>
+          <p>Content coming soon...</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="SalesSolution.js"></script>
+  </body>
+</html>

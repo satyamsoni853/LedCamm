@@ -63,293 +63,365 @@ body {
 
 /* Diagram Layout */
 .diagram-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
-  padding: 2rem 0;
-  min-height: 600px; /* Space for the diagram */
+  width: 100%;
+  max-width: 1200px; /* Matches SVG viewBox width roughly */
+  margin: 0 auto;
+  aspect-ratio: 2 / 1; /* Maintains the 1200/600 ratio */
+  min-height: 500px;
 }
 
-/* Columns */
-.column {
-  z-index: 2;
+/* SVG Overlay */
+.connector-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.left-column {
+.connector-line {
+  fill: none;
+  stroke: #cbd5e1; /* Light Gray/Slate 300 matches Tailwind slate-300 */
+  stroke-width: 2;
+  stroke-dasharray: 8 8;
+  stroke-linecap: round;
+}
+
+.dashed-green {
+  stroke: #86efac; /* Light Green for the right side connector if needed, or keep gray */
+  opacity: 0.6;
+}
+
+/* Nodes Layer */
+.nodes-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none; /* Let clicks pass to pills if needed */
+}
+
+/* Helper for positioning nodes */
+.node-pos {
+  position: absolute;
+  transform: translate(-50%, -50%); /* Center the node on the coordinate */
+  pointer-events: auto;
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: flex-start;
-}
-
-.right-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Nodes */
-.node-wrapper {
-  display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 1rem;
 }
 
+/* Coordinates based on SVG viewBox 1200x600 */
+/* 150/1200 = 12.5% */
+.left-top {
+  top: 16.6%;
+  left: 12.5%;
+}
+.left-mid {
+  top: 50%;
+  left: 12.5%;
+}
+.left-bot {
+  top: 83.3%;
+  left: 12.5%;
+}
+
+/* Center Node: 580/1200 = 48.3% */
+.center {
+  top: 50%;
+  left: 48.3%;
+}
+
+/* Right Bar: ~ 1050/1200 = 87.5% */
+.right-bar {
+  top: 50%;
+  left: 87.5%;
+  transform: translate(-50%, -50%);
+}
+
+/* Icon Styling */
+.node-pos .label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Specific adjustment for left labels to be below icon? The image shows "Conversation" text below the icon? Or to the side?
+   Image check: Text is BELOW the icon for "Conversation", "Contacts", "Companies".
+*/
+.node-pos.left-top .label,
+.node-pos.left-mid .label,
+.node-pos.left-bot .label {
+  top: auto;
+  left: auto;
+  transform: none;
+  position: relative;
+  margin-top: 0;
+}
+/* Wait, image has text below?
+   Let's check the user image again.
+   Top left "Conversation" -> Icon. Text is BELOW.
+   Mid left "Contacts" -> Icon. Text is BELOW.
+   Bot left "Companies" -> Icon. Text is BELOW.
+   
+   Wait, my code above put them side-by-side (flex-row).
+*/
+.node-pos {
+  flex-direction: column; /* Stack icon and text */
+  text-align: center;
+}
+
 .icon-circle {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
+  background: #fff;
+  border: 2px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  border: 2px solid #e5e7eb;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 2;
 }
-
-.source-circle {
-  border-color: #abdcfb; /* Light Blue Border */
-  width: 80px;
-  height: 80px;
-}
-
-.source-circle img {
+.icon-circle img {
   width: 40px;
   height: auto;
 }
-
-.label {
-  font-weight: 600;
-  color: #1f2937;
-  font-size: 1.1rem;
-}
-
-/* CRM Sidebar */
-.crm-sidebar {
-  background: #eff6ff;
-  padding: 1.5rem;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.target-circle {
-  width: 80px;
-  height: 80px;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.target-circle img {
-  width: 50%;
-  height: auto;
-}
-
-.crm-hubspot {
-  background: #ff7a59;
-}
-.crm-pipedrive {
-  background: #00a651;
-}
-.crm-salesforce {
-  background: #fff;
-} /* Salesforce often on white */
-.crm-zoho {
-  background: #fff;
-}
-
-/* Center Logo */
-.center-column {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.blue-icon {
+  border-color: #bae6fd;
+} /* Light Blue Border */
 
 .center-logo-container {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 30px rgba(43, 149, 189, 0.2); /* Glow */
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.15); /* Cyan glow */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 10;
+  border: 1px solid #cffafe;
 }
-
 .center-logo {
-  width: 80%;
+  width: 90px;
   height: auto;
 }
 
-/* Connectors & Pills (Decorations) */
-/* Positioning these absolutely is fragile but fastest for "drawing" without SVG lines */
-.connector-layer,
-.connector-layer-right {
+/* CRM Sidebar - Vertical Stack */
+.crm-sidebar {
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 50px; /* Pill shape container */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.crm-sidebar .target-circle {
+  width: 60px;
+  height: 60px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.crm-sidebar .target-circle img {
+  width: 30px;
+}
+.crm-hubspot {
+  background: #ffaf96;
+}
+.crm-pipedrive {
+  background: #4cd964;
+} /* Adjusted green */
+.crm-salesforce {
+  background: #fff;
+}
+.crm-zoho {
+  background: #fff;
+}
+
+/* Pills Layer */
+.pills-layer {
   position: absolute;
   top: 0;
-  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
   pointer-events: none;
-}
-
-.connector-layer {
-  left: 15%;
-  width: 35%;
-}
-
-.connector-layer-right {
-  right: 15%;
-  width: 30%;
 }
 
 .pill {
   position: absolute;
   background: #fff;
-  border: 1px solid #93c5fd;
-  color: #3b82f6;
-  padding: 0.3rem 0.8rem;
+  padding: 6px 16px;
   border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
 }
 
-.pill-sm {
-  font-size: 0.7rem;
-  padding: 0.2rem 0.6rem;
+/* Colors matching image */
+.pill-blue {
+  border: 1px solid #7dd3fc;
+  color: #0284c7;
+}
+.pill-sky {
+  border: 1px solid #bae6fd;
+  color: #0ea5e9;
+  background: #f0f9ff;
 }
 .pill-green {
-  border-color: #86efac;
+  border: 1px solid #86efac;
   color: #16a34a;
+  background: #f0fdf4;
 }
 .pill-orange {
-  border-color: #fdba74;
+  border: 1px solid #fdba74;
   color: #ea580c;
+  background: #fff7ed;
 }
 .pill-red {
-  border-color: #fca5a5;
+  border: 1px solid #fca5a5;
   color: #dc2626;
+  background: #fef2f2;
 }
 
-/* Manually position pills to match approx visual locations */
-/* Left side pills */
-.pos-1 {
-  top: 20%;
-  left: 0%;
-} /* Conversations top */
-.pos-2 {
+/* Positioning Pills */
+/* Note: These % align with the SVG paths defined in HTML */
+/* Path Top: 150,100 -> 350,100 -> ... */
+.pos-l-1 {
+  top: 16.6%;
+  left: 28%;
+} /* Conversations */
+
+/* Path Mid: 150,300 -> 580,300 */
+.pos-l-2a {
   top: 50%;
-  left: -10%;
+  left: 24%;
 } /* First Name */
-.pos-3 {
+.pos-l-2b {
   top: 50%;
-  left: 40%;
+  left: 36%;
 } /* Last Name */
-.pos-4 {
+
+/* Path Bot: 150,500 -> 350,500 -> curve up to 300 */
+/* The pill 'Website' is on the curve up? No, looks like it's on bottom line */
+.pos-l-3a {
+  top: 83.3%;
+  left: 22%;
+} /* Company Employees - wait, image shows Company Emp first */
+.pos-l-3b {
   top: 75%;
-  left: 45%;
-} /* Website */
-.pos-5 {
-  top: 80%;
-  left: -10%;
-} /* Comp Emp */
+  left: 36%;
+} /* Website - climbing up the curve? Or just next to it */
+/* Actually in image: 'Company Employees' (left), 'Website' (right, higher up) */
 
-/* Right side pills */
-.pos-r1 {
+/* Right Side - A stream of pills */
+/* Center is at 48.3%. Start pills after that. */
+.pos-r-1 {
   top: 48%;
-  left: 10%;
-  border-color: #93c5fd;
-  color: #3b82f6;
-}
-.pos-r2 {
+  left: 60%;
+  z-index: 10;
+} /* Employee (Sky) */
+.pos-r-2 {
+  top: 49%;
+  left: 65%;
+  z-index: 9;
+} /* Website (Green) */
+.pos-r-3 {
   top: 48%;
-  left: 30%;
-}
-.pos-r3 {
-  top: 50%;
-  left: 50%;
-}
-.pos-r4 {
-  top: 52%;
   left: 70%;
+  z-index: 11;
+  border: 1px solid #fdba74;
+  background: #fff;
+  color: #ea580c;
+} /* Conversations (Orange) - wait image has orange border white bg */
+.pos-r-4 {
+  top: 49%;
+  left: 76%;
+  z-index: 8;
+} /* Last Name (Red) */
+.pos-r-5 {
+  top: 48%;
+  left: 81%;
+  z-index: 10;
+} /* First Name (Orange) */
+
+/* Specific Stacking/Overlap fix for Right Side */
+/* They look slightly squashed together in image */
+.pos-r-1 {
+  top: 46%;
+  left: 62%;
 }
-.pos-r5 {
+.pos-r-2 {
   top: 52%;
-  left: 90%;
+  left: 66%;
 }
-
-/* Dashed Lines - Simplified horizontal line for the main axis */
-/* Complex bezier curves are hard in pure CSS. We'll add a central dashed line. */
-.line-set-left::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -50px;
-  right: -20px;
-  height: 2px;
-  border-top: 2px dashed #e5e7eb;
-  z-index: -1;
+.pos-r-3 {
+  top: 51%;
+  left: 72%;
 }
-
-.connector-layer-right::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -50px;
-  right: -80px;
-  height: 2px;
-  border-top: 2px dashed #e5e7eb;
-  z-index: -1;
+.pos-r-4 {
+  top: 52%;
+  left: 78%;
 }
-
-/* CTA */
-.cta-container {
-  margin-top: 4rem;
-}
-
-.cta-btn {
-  background-color: #a3e635; /* Lime Green */
-  color: #1a2e05;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s;
-}
-
-.cta-btn:hover {
-  background-color: #84cc16;
+.pos-r-5 {
+  top: 51%;
+  left: 83%;
 }
 
 /* Responsive */
 @media (max-width: 1000px) {
   .diagram-container {
+    aspect-ratio: auto;
+    height: auto;
+    display: flex;
     flex-direction: column;
-    gap: 3rem;
-  }
-
-  .connector-layer,
-  .connector-layer-right {
-    display: none; /* Hide complex connectors on mobile */
-  }
-
-  .left-column {
     align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 2rem;
+  }
+  .connector-svg {
+    display: none;
+  }
+  .pills-layer {
+    display: none;
   }
 
+  .nodes-layer {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .node-pos {
+    position: static;
+    transform: none;
+    flex-direction: row; /* Side by side on mobile for compactness */
+  }
+
+  .right-bar {
+    position: static;
+    transform: none;
+  }
   .crm-sidebar {
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    border-radius: 20px;
   }
 }

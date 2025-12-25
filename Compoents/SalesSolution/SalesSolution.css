@@ -1,0 +1,332 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 20px;
+  color: #1e293b;
+}
+
+.sales-solution-section {
+  position: relative;
+
+  margin: 0 auto;
+  padding-top: 60px;
+}
+
+/* Robot */
+.robot-container {
+  position: absolute;
+  top: 0;
+  left: -80px;
+  width: 150px;
+}
+.robot-img {
+  width: 100%;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Header */
+.header-content {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.header-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+.header-content p {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Tabs */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 40px;
+  position: relative;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.tab-btn img {
+  height: 24px;
+  width: auto;
+}
+.tab-btn:hover {
+  color: #0f172a;
+}
+.tab-btn.active {
+  color: #0f172a;
+  border-bottom: 3px solid #0f172a; /* Fallback */
+}
+/* Custom active indicator using ::after or bottom border */
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* overlaps border-bottom */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #0f172a;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Tab Content */
+.tab-content-container {
+  padding: 0 20px;
+}
+.tab-pane {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+.tab-pane.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-intro {
+  font-size: 18px;
+  color: #475569;
+  margin-bottom: 30px;
+}
+.tag-incomplete {
+  background-color: #fca5a5;
+  color: #991b1b;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.solution-card {
+  background-color: #f0f4ff; /* Light bluish bg similar to screenshot */
+  border-radius: 16px;
+  padding: 30px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.arrow-link,
+.text-green-link {
+  color: #059669; /* Darker green */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.arrow-link:hover,
+.text-green-link:hover {
+  text-decoration: underline;
+}
+.text-green-link {
+  color: #059669;
+}
+
+/* Left Card Visuals */
+.visual-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visual-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); */
+  /* Assuming the image itself contains the shadows/cards */
+}
+
+/* Right Card Waterfall */
+.waterfall-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 80px 180px 1fr; /* Label - Pill - Status */
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  margin-bottom: 0px;
+}
+
+.label {
+  font-size: 14px;
+  color: #64748b;
+  text-align: right;
+  font-weight: 500;
+}
+
+.vendor-pill {
+  background-color: #fff; /* White background for pills */
+  border-radius: 50px;
+  padding: 8px 6px 8px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  width: fit-content;
+  min-width: 140px;
+}
+
+.vendor-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.c-icon {
+  background-color: #0d9488;
+}
+.d-icon {
+  background-color: #2563eb;
+}
+.r-icon {
+  background-color: #7c3aed;
+} /* Rocket purple */
+.s-icon {
+  background-color: #f1f5f9;
+  color: #475569;
+  width: auto;
+  border-radius: 4px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.status-x {
+  color: #94a3b8;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.arrow-connector {
+  color: #cbd5e1;
+  font-size: 18px;
+  margin: -4px 0 -4px 0; /* Tighten up spacing */
+  /* Align arrow with the pill, which is the 2nd column */
+  /* grid-column: 2; doesn't apply because this div is not in the grid, it's a sibling of the grid rows */
+  /* We need to align it visually to the center of the pill column */
+  /* Pill column starts at 80px + gap 15px = 95px. Width 180px. Center ~ 95 + 90 = 185px from left */
+  /* This is hard to do with current sibling structure. 
+     Better approach: Make arrow a child of a container or give it a margin-left.
+     Label width 80px, Gap 15px. Arrow should be centered relative to the pill.
+     Pill center is approx LabelWidth + Gap + PillWidth/2.
+  */
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 170px; /* 80 + 15 + ~75 */
+}
+
+.success-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 12px;
+}
+.s-icon-circle {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #ecfdf5; /* Light green bg */
+  color: #059669;
+  font-size: 12px;
+}
+.s-icon-circle.phone {
+  background-color: #eff6ff;
+  color: #3b82f6;
+} /* Blue phone */
+.s-icon-circle.mail {
+  background-color: #eff6ff;
+  color: #3b82f6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabs-nav {
+    flex-wrap: wrap;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .robot-container {
+    display: none;
+  }
+}
