@@ -111,14 +111,21 @@ body::after {
 .hero-subtitle {
   font-size: 1.125rem;
   color: #4b5563;
-  max-width: 750px;
+  max-width: 850px;
+  font-weight: 800;
   line-height: 1.6;
   margin-bottom: 3.5rem;
 }
 
 /* Works With Card */
 .works-with-card {
-  background: #e5e7eb;
+  background: linear-gradient(
+    90.37deg,
+    #5ed3ff -12.35%,
+    #6ec6fe 0.67%,
+    #eb65f4 100.24%,
+    #fd58f2 114.28%
+  );
   padding: 1rem 3rem;
   border-radius: 16px;
   display: flex;
@@ -167,15 +174,23 @@ body::after {
   font-size: 0.9rem;
   color: #4b5563;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.8); /* Slight backdrop */
-  padding: 0.5rem;
-  border-radius: 8px;
+  /* Removed background and padding from parent */
 }
 
-/* Fixed the 150px issue */
+.review-icon-box {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
 .review-icon {
   height: 24px;
   width: auto;
+  display: block;
 }
 
 .stars {
@@ -291,7 +306,7 @@ body.dark-mode .hero-badge {
 }
 
 body.dark-mode .works-with-card {
-  background: #1e293b;
+  /* background: #1e293b; Removed to show gradient */
   color: #f8fafc;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
@@ -301,8 +316,13 @@ body.dark-mode .works-text {
 }
 
 body.dark-mode .review-item {
-  background: rgba(30, 41, 59, 0.8);
+  /* background: rgba(30, 41, 59, 0.8); REMOVED */
   color: #cbd5e1;
+}
+
+body.dark-mode .review-icon-box {
+  background: #1e293b; /* Dark bg for box */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .rating-text {

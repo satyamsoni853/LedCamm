@@ -11,7 +11,7 @@ body {
 }
 
 .supports-section {
-  margin: 1rem auto; /* Reduced from 4rem */
+  margin: 6rem auto; /* Reduced from 4rem */
   padding: 0 1rem;
   text-align: center;
   position: relative;

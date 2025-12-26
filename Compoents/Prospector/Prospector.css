@@ -164,6 +164,29 @@
   z-index: 10;
 }
 
+/* Vertical Line */
+.vertical-line {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 50%;
+  width: 1px;
+  background-color: #e5e7eb;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Decoration Image */
+.bg-decoration-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* CTA Area */
 .cta-area {
   margin-top: 2rem;
@@ -181,6 +204,8 @@
   font-size: 1.125rem;
   padding: 1rem 2.5rem;
   border: none;
+  margin-top: 82px;
+  margin-bottom: 20px;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(163, 230, 53, 0.4);
