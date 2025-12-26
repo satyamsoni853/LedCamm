@@ -7,51 +7,85 @@
   padding: 50px 0px;
 }
 
+/* Marquee Container */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  /* Mask to fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
 .features-container {
-  margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  width: max-content;
+  gap: 4rem; /* Spacing between items */
   padding: 0 1rem;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  animation: scroll 25s linear infinite;
+  /* Remove old layout styles */
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin: 0; /* Reset margin since wrapper handles centering */
+}
+
+/* Keyframes for sliding */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Since we have 3 identical sets, we scroll by exactly 1/3 of the total width to create a loop */
+    transform: translateX(-33.333%);
+  }
 }
 
 .feature-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0; /* Prevent items from squishing */
 }
 
+/* Pause on hover */
+.features-container:hover {
+  animation-play-state: paused;
+}
+
+/* Restored Style Block */
 .feature-item img {
-  height: 42px; /* Consistent icon size */
+  height: 42px;
   width: auto;
   display: block;
 }
 
 .feature-item p {
   font-size: 0.95rem;
-  color: #6b7280; /* Gray text matches image */
+  color: #6b7280;
   line-height: 1.4;
   font-weight: 500;
 }
 
 .highlight-text {
-  color: #1f2937; /* Darker/Bold text */
   font-weight: 700;
-  /* Optional: add a slight color tint if the bold text in image isn't pure black, looks dark blue-ish? */
-  color: #1e3a8a; /* Using a dark blue tone similar to provided image text color */
-}
-
-/* Specific Tweak for "Waterfall Enrichment" text color based on image visual inspection */
-/* Actually all highlighted text seems to be a dark navy blue */
-.highlight-text {
   color: #172554;
 }
 
 /* Dark Mode Overrides */
 body.dark-mode {
-  background-color: #0f172a; /* Match Hero dark bg */
+  background-color: #0f172a;
   color: #f8fafc;
 }
 
@@ -64,22 +98,26 @@ body.dark-mode .feature-item p {
 }
 
 body.dark-mode .highlight-text {
-  color: #60a5fa; /* Lighter blue for dark mode */
+  color: #60a5fa;
 }
 
-/* Responsiveness */
+/* Responsive specific overrides can be removed as marquee works on all screens usually */
 @media (max-width: 900px) {
   .features-container {
-    justify-content: flex-start;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: start;
-    padding-left: 2rem;
+    /* Ensure old grid overrides are gone */
+    display: flex;
+    grid-template-columns: none;
+    padding-left: 0;
+  }
+
+  .marquee-wrapper {
+    mask-image: none; /* simple loop on mobile or keep it */
   }
 }
 
 @media (max-width: 600px) {
   .features-container {
-    grid-template-columns: 1fr;
+    gap: 2rem;
+    animation-duration: 20s; /* Faster on small screens or keep same feel */
   }
 }

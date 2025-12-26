@@ -98,12 +98,24 @@ body {
 .platform-icon {
   display: flex;
   align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for the white box */
+}
+
+.platform-icon img {
+  width: 24px;
+  height: auto;
+  display: block;
 }
 
 .stars {
-  color: #1e1b4b; /* Indigo stars */
+  color: #1e1b4b; /* Dark Navy stars as per image */
   letter-spacing: 2px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .user-profile {
@@ -159,6 +171,10 @@ body.dark-mode .nav-btn.next {
 
 body.dark-mode .testimonial-card {
   background-color: #1e293b;
+}
+
+body.dark-mode .platform-icon {
+  background-color: #334155; /* Dark box in dark mode */
 }
 
 body.dark-mode .quote {
