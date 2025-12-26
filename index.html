@@ -83,5 +83,76 @@
     ></iframe>
 
     <script src="./scrpit.js"></script>
+
+    <!-- Free Trial Modal (Global) - Added per request -->
+    <div class="modal-overlay" id="freeTrialModal">
+      <div class="free-trial-modal">
+        <!-- Close Button -->
+        <div class="close-modal-btn" onclick="toggleModal(false)">✕</div>
+
+        <div class="ft-banner">
+          <div class="ft-left">
+            <div class="ft-avatars">
+              <!-- Using placeholders or existing avatars -->
+              <img
+                src="./Assests/Testominaals/AvatarUsers1.png"
+                class="ft-avatar"
+                alt=""
+              />
+              <img
+                src="./Assests/Testominaals/AvatarUsers2.png"
+                class="ft-avatar"
+                alt=""
+              />
+              <img
+                src="./Assests/Testominaals/AvatarUsers3.png"
+                class="ft-avatar"
+                alt=""
+              />
+            </div>
+            <div class="ft-text">
+              Join with our Thousands of professionals Now !
+            </div>
+          </div>
+          <button class="ft-btn">Get a Free Trial Now!</button>
+        </div>
+
+        <div class="ft-badges">
+          <div class="ft-badge">
+            <span class="ft-icon">💳</span>
+            <span>No Credit Card <span class="ft-gray">Required</span></span>
+          </div>
+          <div class="ft-badge">
+            <span class="ft-icon">⏰</span>
+            <span>14 Days Free <span class="ft-gray">Trial</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script to handle messages from iframes -->
+    <script>
+      const modal = document.getElementById("freeTrialModal");
+
+      function toggleModal(show) {
+        if (show) {
+          modal.classList.add("active");
+        } else {
+          modal.classList.remove("active");
+        }
+      }
+
+      // Close on clicking overlay
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) toggleModal(false);
+      });
+
+      // Listen for messages from iframes
+      window.addEventListener("message", function (event) {
+        if (event.data === "open-free-trial-modal") {
+          toggleModal(true);
+        }
+      });
+    </script>
   </body>
 </html>

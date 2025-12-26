@@ -66,3 +66,153 @@ iframe {
     right: -10px;
   }
 }
+
+/* Free Trial Modal Styles */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.free-trial-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .free-trial-modal {
+  transform: translateY(0);
+}
+
+.ft-banner {
+  background-color: #fae8ff; /* Light Pinkish */
+  border-radius: 16px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  /* Add border if needed? Image doesn't show one */
+}
+
+.ft-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ft-avatars {
+  display: flex;
+}
+.ft-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-left: -15px;
+  object-fit: cover;
+}
+.ft-avatar:first-child {
+  margin-left: 0;
+}
+
+.ft-text {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ft-btn {
+  background-color: #a3e635; /* Lime */
+  color: #0f172a;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px -1px rgba(163, 230, 53, 0.3);
+  transition: transform 0.2s;
+}
+.ft-btn:hover {
+  transform: translateY(-2px);
+}
+
+.ft-badges {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.ft-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ft-icon {
+  font-size: 18px;
+}
+.ft-gray {
+  color: #9ca3af;
+}
+
+/* Close button (optional but good UX) */
+.close-modal-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ft-banner {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+  .ft-left {
+    flex-direction: column;
+  }
+  .ft-badges {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
