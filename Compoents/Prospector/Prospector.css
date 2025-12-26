@@ -171,7 +171,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  /* gap removed as we are using absolute positioning for the text */
 }
 
 .cta-button {
@@ -185,6 +185,8 @@
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(163, 230, 53, 0.4);
   transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  z-index: 5;
 }
 
 .cta-button:hover {
@@ -194,10 +196,15 @@
 }
 
 .handwritten-group {
-  position: relative;
+  position: absolute;
+  left: calc(50% + 200px); /* Move clear of the centered button */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically relative to container */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  pointer-events: none; /* Let clicks pass through if it overlaps slightly */
+  white-space: nowrap; /* Prevent wrapping */
 }
 
 .handwritten-text {
@@ -205,9 +212,10 @@
   font-size: 2rem;
   color: #166534; /* Dark green text */
   line-height: 1.2;
+
   transform: rotate(-3deg);
   margin-bottom: 0px;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .arrow-svg {
