@@ -70,9 +70,21 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .thousands-section {
+    align-items: center;
+    text-align: center;
+  }
   .section-title {
     font-size: 1.75rem;
+    text-align: center;
+  }
+  .cta-container {
+    width: 100%;
+  }
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

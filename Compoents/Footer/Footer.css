@@ -201,7 +201,28 @@ body {
 
   .footer-column {
     width: 100%;
-    align-items: flex-start;
+    align-items: center; /* Center align on mobile */
+    text-align: center;
+  }
+
+  .brand-desc {
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .footer-logo {
+    align-self: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-list {
+    align-items: center;
+  }
+
+  .contact-list li {
+    justify-content: center;
   }
 }
 

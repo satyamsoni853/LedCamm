@@ -225,6 +225,7 @@ body.dark-mode .connector-line {
   .steps-container {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 3rem;
   }
   .step-card {
     flex: 1 1 45%; /* 2 per row */
@@ -236,11 +237,18 @@ body.dark-mode .connector-line {
 }
 
 @media (max-width: 650px) {
+  .how-it-works-section {
+    padding-top: 2rem;
+  }
   .step-card {
     flex: 1 1 100%;
   }
   .header-container {
     text-align: center;
     padding: 0;
+    margin-bottom: 2rem;
+  }
+  .step-number {
+    font-size: 3rem;
   }
 }

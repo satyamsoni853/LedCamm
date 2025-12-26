@@ -502,6 +502,79 @@ body {
   .crm-sidebar {
     flex-direction: row;
     border-radius: 20px;
+    margin-top: 2rem;
+  }
+
+  .diagram-container {
+    height: auto;
+    min-height: auto;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  /* Disable absolute positioning for mobile flow */
+  .nodes-layer,
+  .dots-layer,
+  .pills-layer,
+  .connector-svg {
+    position: static;
+    width: 100%;
+    height: auto;
+    pointer-events: auto;
+  }
+
+  .nodes-layer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  /* Reset Node Positions */
+  .node-pos,
+  .center,
+  .right-bar {
+    position: static;
+    transform: none;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .node-pos {
+    gap: 1rem;
+  }
+
+  .center-logo-container {
+    margin: 2rem 0;
+  }
+
+  /* Reuse styling but layout linearly */
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Hide complex decorative layers that don't make sense in column */
+  .connector-svg,
+  .dots-layer,
+  .pills-layer {
+    display: none;
+  }
+
+  /* Make sidebar stack at bottom */
+  .right-bar {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.75rem;
   }
 }
 

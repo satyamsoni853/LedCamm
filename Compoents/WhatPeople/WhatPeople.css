@@ -189,15 +189,23 @@ body.dark-mode .avatar {
 @media (max-width: 900px) {
   .testimonials-container {
     flex-direction: column;
+    overflow-x: visible; /* No scroll needed if stacked */
   }
 
   .header-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center; /* Center align */
+    text-align: center;
+    gap: 1.5rem;
   }
 
   .nav-buttons {
-    align-self: flex-end;
+    display: none; /* Hide nav buttons if stacking, or keep them if carousel-like? Stacking implies showing all or subset. */
+    /* Let's hide them if we are stacking all cards vertically as per typical mobile pattern */
+  }
+
+  .testimonial-card {
+    min-width: 0;
+    min-height: auto;
   }
 }

@@ -369,14 +369,54 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .sales-solution-section {
+    padding-top: 1rem;
+  }
+  .header-content h2 {
+    font-size: 24px;
+  }
   .tabs-nav {
     flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tab-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 100%; /* Stack tabs fully if needed */
+    justify-content: center;
   }
   .cards-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .solution-card {
+    padding: 20px;
   }
   .robot-container {
     display: none;
+  }
+
+  /* Waterfall Mobile */
+  .waterfall-diagram {
+    padding: 20px; /* Reduce padding */
+    align-items: flex-start;
+    overflow-x: auto; /* Allow horizontal scroll if it's too wide */
+  }
+
+  .wf-row {
+    margin-left: 0 !important; /* Reset staggers */
+    min-width: max-content; /* Ensure row stays together */
+  }
+
+  .wf-arrow {
+    display: none; /* Hide arrows on mobile as staggers are gone */
+  }
+
+  .row-1,
+  .row-2,
+  .row-3,
+  .row-4 {
+    margin-left: 0;
   }
 }
 

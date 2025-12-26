@@ -319,6 +319,9 @@ body.dark-mode .app-store-btn:hover {
 
 /* Responsiveness */
 @media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
   .hero-title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -329,6 +332,7 @@ body.dark-mode .app-store-btn:hover {
     margin-bottom: 2rem;
   }
 
+  /* ... existing styles ... */
   .cta-container {
     flex-direction: column;
     width: 100%;
