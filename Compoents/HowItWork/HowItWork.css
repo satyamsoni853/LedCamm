@@ -1,51 +1,26 @@
-/* Basic Setup */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Inter", sans-serif;
   background-color: #ffffff;
-  
+  /* Grid Pattern + Main Gradient */
+  background-image: linear-gradient(
+      rgba(224, 242, 254, 0.5) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(224, 242, 254, 0.5) 1px, transparent 1px),
+    linear-gradient(to top right, #e0f2fe, #ffffff);
+  background-size: 300px 300px, 200px 200px, 100% 100%; /* Square boxes like the previous request or standard grid */
+  background-repeat: repeat, repeat, no-repeat;
+  background-attachment: scroll, scroll, fixed; /* Fix the main gradient if needed, but scroll is usually safer for flows */
   color: #111827;
-  /* Grid Pattern Background - Subtle Blue Lines */
-  background-image: linear-gradient(#e0f2fe 1px, transparent 1px),
-    linear-gradient(90deg, #e0f2fe 1px, transparent 1px);
-  background-size: 150px 300px; /* Standardize grid size */
-  background-position: center top;
   position: relative;
   overflow-x: hidden;
   padding: 50px;
 }
 
-/* Add subtle blue background blocks to mimic the image */
+/* Remove background blobs and grid */
 body::before,
 body::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border-radius: 12px;
-  opacity: 0.4;
-}
-
-body::before {
-  width: 150px;
-  height: 150px;
-  background: #e0f2fe;
-  top: 100px;
-  left: 5%;
-  transform: rotate(-10deg);
-}
-
-body::after {
-  width: 200px;
-  height: 200px;
-  background: #f0f9ff;
-  top: 200px;
-  right: 5%;
-  transform: rotate(15deg);
+  display: none;
 }
 
 .how-it-works-section {
