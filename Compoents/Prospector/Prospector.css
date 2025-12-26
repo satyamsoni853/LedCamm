@@ -222,8 +222,8 @@
 
 .handwritten-group {
   position: absolute;
-  left: calc(50% + 200px); /* Move clear of the centered button */
-  top: 50%;
+  left: calc(50% + 230px); /* Move clear of the centered button */
+  top: 45%;
   transform: translateY(-50%); /* Center vertically relative to container */
   display: flex;
   flex-direction: column;
