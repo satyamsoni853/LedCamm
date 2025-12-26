@@ -6,14 +6,24 @@ body {
   min-height: 100%;
   overflow-x: hidden;
 }
+
+body.dark-mode {
+  background-color: #0f172a; /* Match other sections */
+}
+
 iframe {
   width: 100%;
   border: none;
   display: block;
+  vertical-align: top;
   overflow: hidden !important;
   margin: 0;
   padding: 0;
   pointer-events: auto;
+}
+
+#navbar {
+  height: 80px; /* Fixed height to prevent gap */
 }
 
 /* Decorative Overlay Wrapper */

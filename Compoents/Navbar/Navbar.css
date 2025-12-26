@@ -1,5 +1,8 @@
-/* Google Font: Inter */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -293,6 +296,10 @@ body {
 }
 
 /* Dark Mode Overrides (injected by theme.js but helpful to have specificity here if needed) */
+body.dark-mode {
+  background-color: #111827; /* Same as navbar dark bg */
+}
+
 body.dark-mode .navbar {
   background-color: #111827;
   border-bottom-color: #374151;

@@ -10,11 +10,11 @@ body {
     linear-gradient(to top right, #e0f2fe, #ffffff);
   background-size: 300px 300px, 200px 200px, 100% 100%; /* Square boxes like the previous request or standard grid */
   background-repeat: repeat, repeat, no-repeat;
-  background-attachment: scroll, scroll, fixed; /* Fix the main gradient if needed, but scroll is usually safer for flows */
+  background-attachment: scroll, scroll, fixed;
   color: #111827;
   position: relative;
   overflow-x: hidden;
-  padding: 50px;
+  padding: 0 50px 50px 50px; /* Removed top padding */
 }
 
 /* Add subtle blue background blocks to mimic the image */

@@ -26,7 +26,7 @@ function resizeIframe(iframe) {
     const currentHeight = iframe.getBoundingClientRect().height;
 
     if (Math.abs(height - currentHeight) > 2) {
-      iframe.style.height = height + 4 + "px";
+      iframe.style.height = Math.ceil(height) + "px";
     }
   } catch (e) {
     // console.warn("Iframe resize failed (likely CORS):", e);
@@ -79,5 +79,12 @@ window.addEventListener("message", (event) => {
         "*"
       );
     });
+
+    // Also update main document body
+    if (newTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
   }
 });
