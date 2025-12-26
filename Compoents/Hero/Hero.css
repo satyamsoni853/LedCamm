@@ -4,6 +4,9 @@ body {
   color: #111827;
   position: relative;
   overflow-x: hidden;
+  
+
+  background-size: 80px 100%; /*
 }
 
 /* Add subtle blue background blocks to mimic the image */
