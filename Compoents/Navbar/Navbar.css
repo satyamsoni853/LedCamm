@@ -5,14 +5,14 @@
 .navbar {
   width: 100%;
   background-color: #ffffff;
-  border-bottom: 1px solid #f3f4f6; 
-  padding: 1rem 0; 
+  border-bottom: 1px solid #f3f4f6;
+  padding: 1rem 0;
 }
 
 .navbar-container {
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
 }
@@ -26,8 +26,8 @@
 .navbar-center {
   flex-grow: 1;
   display: flex;
-  justify-content: center; 
-  padding-left: 2rem; 
+  justify-content: center;
+  padding-left: 2rem;
 }
 
 .nav-links {
@@ -73,7 +73,7 @@
 }
 
 .btn {
-  padding: 0.65rem 1.4rem; 
+  padding: 0.65rem 1.4rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.95rem;
@@ -131,9 +131,158 @@
 }
 
 /* Responsive */
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
   .navbar-center {
+    display: block; /* Ensure container is visible for absolute positioning of children if needed, or flex */
+    position: absolute;
+    top: 70px; /* Below navbar */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #f3f4f6;
+    z-index: 100;
+    transform: translateY(-200%); /* Hide by default */
+    transition: transform 0.3s ease-in-out;
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  /* Show menu when active */
+  .nav-links.active {
+    display: flex; /* Override previous rules if any */
+  }
+
+  /* Actually, let's target the parent .navbar-center to hide/show, 
+     or just toggle class on nav-links if we adjust structure. 
+     The HTML change attached 'active' to nav-links. 
+     Let's style .nav-links directly for mobile. */
+
+  .navbar-center {
+    padding: 0;
+    /* We can hide the whole center div or just the ul. 
+         Let's keep it simple: nav-links is the list. */
+    display: none; /* Hide container */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* When javascript adds 'active' class to nav-links, 
+     we actually need to make sure the PARENT is visible or 
+     use the parent to toggle. 
+     Refinement: The script toggles 'active' on nav-links. 
+     The nav-links is INSIDE navbar-center. 
+     If navbar-center is hidden, nav-links won't show. 
+     Let's override the display:none on navbar-center if it has a child active? 
+     CSS can't do parent selector.
+     
+     BETTER PLAN: Toggle class on `.navbar-center` or use the script to toggle display.
+     Backtrack: I will style `.nav-links` to be the sliding menu. 
+     The `.navbar-center` wrapper might be annoying.
+     Let's just make `.navbar-center` the mobile menu container.
+  */
+}
+
+/* Re-doing the media query for clarity and robustness */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block; /* Show hamburger */
+  }
+
+  .desktop-only {
+    display: none; /* Hide big buttons on mobile if space is tight, or keep them? */
+    /* Let's keep them if they fit, or hide 'Login' text? 
+       For now, might hide them to save space or move them into the menu. 
+       Let's hide them for cleaner header. */
     display: none;
+  }
+
+  .navbar-center {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0; /* Slide down effect */
+    transition: max-height 0.3s ease-out;
+    border-bottom: 1px solid #f3f4f6;
+    display: block; /* Override flex */
+    padding-left: 0; /* Reset */
+  }
+
+  /* We need a class on navbar-center to open it. 
+     The script I wrote toggles 'active' on 'nav-links'. 
+     Let's change the script or CSS. 
+     
+     Since I already wrote the script to toggle #nav-links, 
+     Let's target #nav-links directly. 
+  */
+
+  .navbar-center {
+    /* Disable the wrapper's hiding if we want to control inner list */
+    display: block;
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    transform: translateY(-150%);
+    transition: transform 0.3s ease-in-out;
+    z-index: -1; /* Behind header if needed, but header bg is white so it's fine */
+    display: flex;
+    opacity: 0;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 50;
   }
 }
 

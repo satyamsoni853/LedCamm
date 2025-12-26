@@ -28,7 +28,7 @@
         </div>
 
         <div class="navbar-center">
-          <ul class="nav-links">
+          <ul class="nav-links" id="nav-links">
             <li class="nav-item">
               <a href="#" class="nav-link"
                 >Product <i class="fas fa-chevron-down arrow-icon"></i
@@ -63,30 +63,51 @@
           >
             🌙
           </button>
-          <button class="btn btn-primary">Get Your Free Account</button>
-          <button class="btn btn-outline">
+          <button class="btn btn-primary desktop-only">
+            Get Your Free Account
+          </button>
+          <button class="btn btn-outline desktop-only">
             <span class="login-icon">&rarr;</span> Login
+          </button>
+
+          <!-- Hamburger Menu Button -->
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
     </nav>
     <script src="../../theme.js"></script>
     <script>
+      // Theme Toggle Logic
       const toggleBtn = document.getElementById("theme-toggle");
       let currentTheme = "light";
 
       toggleBtn.addEventListener("click", () => {
         currentTheme = currentTheme === "light" ? "dark" : "light";
         toggleBtn.textContent = currentTheme === "light" ? "🌙" : "☀️";
-
-        // Apply locally
         applyTheme(currentTheme);
-
-        // Tell parent to broadcast
         window.parent.postMessage(
           { type: "toggle-theme", theme: currentTheme },
           "*"
         );
+      });
+
+      // Mobile Menu Logic
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        // Optional: Toggle icon between bars and times
+        const icon = menuToggle.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
       });
     </script>
   </body>

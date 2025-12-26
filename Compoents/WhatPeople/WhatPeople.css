@@ -138,6 +138,53 @@ body {
   color: #6b7280;
 }
 
+/* Dark Mode Overrides */
+body.dark-mode {
+  background-color: #0f172a;
+}
+
+body.dark-mode .section-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .nav-btn {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+body.dark-mode .nav-btn.next {
+  background: #f8fafc;
+  color: #1e1b4b; /* Invert for contrast */
+}
+
+body.dark-mode .testimonial-card {
+  background-color: #1e293b;
+}
+
+body.dark-mode .quote {
+  color: #cbd5e1;
+}
+
+body.dark-mode .stars {
+  color: #fbbf24;
+}
+
+body.dark-mode .user-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .user-source {
+  color: #94a3b8;
+}
+
+body.dark-mode .user-profile {
+  border-top-color: #334155;
+}
+
+body.dark-mode .avatar {
+  background: #334155;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .testimonials-container {

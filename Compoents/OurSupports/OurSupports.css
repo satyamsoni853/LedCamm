@@ -499,43 +499,69 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 1000px) {
-  .diagram-container {
-    aspect-ratio: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-  }
-  .connector-svg {
-    display: none;
-  }
-  .pills-layer,
-  .dots-layer {
-    display: none;
-  }
-
-  .nodes-layer {
-    position: static;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .node-pos {
-    position: static;
-    transform: none;
-    flex-direction: row;
-  }
-
-  .right-bar {
-    position: static;
-    transform: none;
-  }
   .crm-sidebar {
     flex-direction: row;
     border-radius: 20px;
   }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .section-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .section-desc {
+  color: #cbd5e1;
+}
+
+body.dark-mode .center-logo-container {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.1);
+}
+
+body.dark-mode .crm-sidebar {
+  background: #1e293b;
+}
+
+body.dark-mode .crm-sidebar .target-circle {
+  background: #334155;
+  box-shadow: none;
+}
+
+/* Keep branded colors as is or slightly dim them? Keeping them is usually fine for brand recognition */
+body.dark-mode .crm-salesforce,
+body.dark-mode .crm-zoho {
+  background: #cbd5e1; /* White logos on white bg might need adjustment, dimming bg to grey */
+}
+
+body.dark-mode .pill {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+/* Adjust specific pills for visibility */
+body.dark-mode .pill-blue,
+body.dark-mode .pill-emp,
+body.dark-mode .pill-web,
+body.dark-mode .pill-conv,
+body.dark-mode .pill-last,
+body.dark-mode .pill-first {
+  background-color: #0f172a;
+  /* Retain original border/text colors for distinctness, or desaturate */
+}
+
+body.dark-mode .icon-circle {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .node-pos .label {
+  color: #cbd5e1;
 }

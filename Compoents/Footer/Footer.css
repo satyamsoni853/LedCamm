@@ -204,3 +204,47 @@ body {
     align-items: flex-start;
   }
 }
+
+/* Dark Mode Overrides */
+body.dark-mode .footer-section {
+  /* Darker gradient */
+  background: linear-gradient(
+    277.75deg,
+    rgba(1, 178, 216, 0.1) 0%,
+    rgba(15, 23, 42, 1) 77%
+  );
+  color: #cbd5e1;
+}
+
+body.dark-mode .footer-heading {
+  color: #f8fafc;
+}
+
+body.dark-mode .footer-list li a {
+  color: #94a3b8;
+}
+body.dark-mode .footer-list li a:hover {
+  color: #38bdf8;
+}
+
+body.dark-mode .chrome-store-badge {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.dark-mode .copyright {
+  border-top-color: #334155;
+  color: #64748b;
+}
+
+body.dark-mode .disclaimer {
+  color: #64748b;
+}
+
+body.dark-mode .social-btn {
+  background-color: #334155;
+  color: #f8fafc;
+}
+body.dark-mode .social-btn:hover {
+  background-color: #00bed6;
+}

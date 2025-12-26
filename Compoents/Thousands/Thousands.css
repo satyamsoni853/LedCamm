@@ -9,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #f7f9fc;
   padding: 50px;
+}
 
 .thousands-section {
   margin: 1rem auto; /* Reduced from 4rem */
@@ -73,4 +74,18 @@ body {
   .section-title {
     font-size: 1.75rem;
   }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  background-color: #0f172a !important; /* Dark background */
+}
+
+body.dark-mode .section-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .cta-btn {
+  /* Keep lime green as it pops well on dark */
+  color: #0f172a;
 }

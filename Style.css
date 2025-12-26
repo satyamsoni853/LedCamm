@@ -46,3 +46,13 @@ iframe {
   display: block;
   z-index: 20;
 }
+
+@media (max-width: 768px) {
+  .decorative-blob-right,
+  .decorative-ball-right {
+    width: 60px; /* Smaller size */
+    top: -30px; /* Adjust overlap */
+    /* Or display: none; if they cause horizontal scroll */
+    right: -10px;
+  }
+}

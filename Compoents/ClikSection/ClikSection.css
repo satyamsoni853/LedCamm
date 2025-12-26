@@ -49,6 +49,24 @@
   color: #172554;
 }
 
+/* Dark Mode Overrides */
+body.dark-mode {
+  background-color: #0f172a; /* Match Hero dark bg */
+  color: #f8fafc;
+}
+
+body.dark-mode .features-section {
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .feature-item p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .highlight-text {
+  color: #60a5fa; /* Lighter blue for dark mode */
+}
+
 /* Responsiveness */
 @media (max-width: 900px) {
   .features-container {
